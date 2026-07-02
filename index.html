@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pexeso – VITAKARTA</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="kontejner">
+  <h1>Pexeso VITAKARTA</h1>
+  <p class="podnadpis">Najdi k sobě pojem a jeho vysvětlení</p>
+
+  <!-- Výběr úrovně -->
+  <div id="vyber-urovne" class="vyber-urovne">
+    <button class="btn-uroven" data-uroven="lehka">
+      <span class="btn-uroven-nazev">Lehká</span>
+      <span class="btn-uroven-popis">6 párů</span>
+    </button>
+    <button class="btn-uroven" data-uroven="stredni">
+      <span class="btn-uroven-nazev">Střední</span>
+      <span class="btn-uroven-popis">12 párů</span>
+    </button>
+    <button class="btn-uroven" data-uroven="tezka">
+      <span class="btn-uroven-nazev">Těžká</span>
+      <span class="btn-uroven-popis">18 párů</span>
+    </button>
+  </div>
+
+  <!-- Herní plocha -->
+  <div id="hra" class="hra" hidden>
+    <div class="hra-hlavicka">
+      <div class="cas">Čas: <span id="cas-hodnota">0:00</span></div>
+      <button id="btn-zmenit-uroven" class="btn-odkaz">Zpět na výběr úrovně</button>
+    </div>
+    <div id="plocha" class="plocha"></div>
+  </div>
+
+  <!-- Výsledek -->
+  <div id="vysledek" class="vysledek" hidden>
+    <div class="pohar-emoji">🏆</div>
+    <p class="vysledek-text">Hotovo! Tvůj čas: <span id="vysledny-cas"></span></p>
+    <div class="vysledek-tlacitka">
+      <button id="btn-nova-hra" class="btn btn-primarni">Nová hra</button>
+      <button id="btn-zpet-na-uroven" class="btn btn-sekundarni">Zpět na výběr úrovně</button>
+    </div>
+  </div>
+</div>
+<script src="karticky.js"></script>
+<script src="pexeso.js"></script>
+</body>
+</html>
