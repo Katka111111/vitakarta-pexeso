@@ -93,7 +93,7 @@ function klikNaKartu(id) {
 
   if (otoceneKarty.length === 2) {
     zamceno = true;
-    setTimeout(vyhodnotDvojici, 700);
+    setTimeout(vyhodnotDvojici, 1800);
   }
 }
 

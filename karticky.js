@@ -37,7 +37,7 @@ const KARTICKY = [
 
 // Nastavení jednotlivých úrovní obtížnosti.
 const UROVNE = {
-  lehka: { nazev: "Lehká", pocetParu: 6, skupiny: ["lehka"] },
-  stredni: { nazev: "Střední", pocetParu: 12, skupiny: ["lehka", "stredni"] },
-  tezka: { nazev: "Těžká", pocetParu: 18, skupiny: ["lehka", "stredni", "tezka"] },
+  lehka: { nazev: "Lehká", pocetParu: 3, skupiny: ["lehka"] },
+  stredni: { nazev: "Střední", pocetParu: 6, skupiny: ["lehka", "stredni"] },
+  tezka: { nazev: "Těžká", pocetParu: 9, skupiny: ["lehka", "stredni", "tezka"] },
 };
