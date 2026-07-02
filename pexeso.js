@@ -50,8 +50,20 @@ function zahajitHru(uroven) {
   vykresliPlochu();
 }
 
+function vypocitejSloupce(pocetKaret) {
+  const sirokaObrazovka = window.innerWidth >= 700;
+  if (pocetKaret <= 6) return sirokaObrazovka ? 3 : 2;
+  if (pocetKaret <= 12) return sirokaObrazovka ? 4 : 3;
+  return sirokaObrazovka ? 6 : 4;
+}
+
 function vykresliPlochu() {
   const plocha = document.getElementById('plocha');
+  const sloupce = vypocitejSloupce(karty.length);
+  const sirkaKarty = 130;
+  const mezera = 10;
+  plocha.style.gridTemplateColumns = 'repeat(' + sloupce + ', 1fr)';
+  plocha.style.maxWidth = (sloupce * sirkaKarty + (sloupce - 1) * mezera) + 'px';
   plocha.innerHTML = '';
   karty.forEach((karta) => {
     const el = document.createElement('div');
@@ -79,7 +91,10 @@ function vykresliKartu(karta) {
 }
 
 function klikNaKartu(id) {
-  if (zamceno) return;
+  if (zamceno) {
+    vyhodnotDvojici();
+  }
+
   const karta = najdiKartu(id);
   if (!karta || karta.otocena || karta.zmizela) return;
 
@@ -93,7 +108,6 @@ function klikNaKartu(id) {
 
   if (otoceneKarty.length === 2) {
     zamceno = true;
-    setTimeout(vyhodnotDvojici, 1800);
   }
 }
 
@@ -107,19 +121,18 @@ function vyhodnotDvojici() {
     vykresliKartu(prvni);
     vykresliKartu(druha);
     nalezenoParu++;
-    otoceneKarty = [];
-    zamceno = false;
-
-    if (nalezenoParu === celkemParu) {
-      setTimeout(dokoncitHru, 500);
-    }
   } else {
     prvni.otocena = false;
     druha.otocena = false;
     vykresliKartu(prvni);
     vykresliKartu(druha);
-    otoceneKarty = [];
-    zamceno = false;
+  }
+
+  otoceneKarty = [];
+  zamceno = false;
+
+  if (nalezenoParu === celkemParu) {
+    setTimeout(dokoncitHru, 400);
   }
 }
 
